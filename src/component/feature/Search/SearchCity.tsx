@@ -16,7 +16,7 @@ const SearchCity = () => {
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
-        <Button text="検索" />
+        <Button text="検索" city={city} />
       </div>
     </>
   );
