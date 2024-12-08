@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { parseStringPromise } from "xml2js";
-import { CitiesElement, CitiesType } from "../../../../type/app/wether/types";
+import { CitiesElement, CitiesType } from "../../../../type/app/weather/types";
 
 export async function GET() {
   try {

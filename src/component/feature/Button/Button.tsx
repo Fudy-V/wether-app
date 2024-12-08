@@ -1,6 +1,6 @@
 import React from "react";
 
-// const getWether = async () => {};
+// const getWeather = async () => {};
 
 const Button = ({ text, city }: { text: string; city: string }) => {
   const getCityCode = async () => {
