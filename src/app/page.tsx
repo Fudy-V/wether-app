@@ -1,4 +1,5 @@
 import SearchCity from "@/component/feature/Search/SearchCity";
+// import WeatherResult from "@/component/layout/WeatherResult/WeatherResult";
 
 export default function Home() {
   return (
@@ -9,6 +10,8 @@ export default function Home() {
       <main className=" flex flex-col items-center py-4">
         <label htmlFor="search">どこの天気がしりたいですか？</label>
         <SearchCity />
+
+        {/* <WeatherResult /> */}
       </main>
     </div>
   );
