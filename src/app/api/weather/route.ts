@@ -1,8 +1,12 @@
 import { NextResponse } from "next/server";
 
-export async function GET(area: Request) {
+export async function POST(area: Request) {
   try {
-    const res = await fetch(`https://weather.tsukumijima.net/api/forecast/city/${area}`);
+    const areaId: string = await area.json();
+
+    // console.log(areaId);
+
+    const res = await fetch(`https://weather.tsukumijima.net/api/forecast/city/${areaId}`);
 
     if (!res.ok) {
       console.error("天気情報の取得に失敗しました");
