@@ -3,7 +3,15 @@ import { CitiesList } from "../../../../type/app/weather/types";
 
 // const getWeather = async () => {};
 
-const Button = ({ text, city }: { text: string; city: string }) => {
+const Button = ({
+  text,
+  city,
+  getWeather,
+}: {
+  text: string;
+  city: string;
+  getWeather: React.Dispatch<React.SetStateAction<string>>;
+}) => {
   const getCityCode = async () => {
     console.log(city);
     const res = await fetch("/api/area");
@@ -13,12 +21,12 @@ const Button = ({ text, city }: { text: string; city: string }) => {
     try {
       const area = await res.json();
       const areaList: CitiesList = area.areaData;
-      console.log(areaList);
+      // console.log(areaList);
 
       //SearchCityのinputで入力された値で検索かけたID
       const areaId = areaList.filter((elm) => elm.title === city)[0].id;
 
-      console.log(areaId);
+      // console.log(areaId);
 
       try {
         const res = await fetch("/api/weather", {
@@ -27,7 +35,9 @@ const Button = ({ text, city }: { text: string; city: string }) => {
         });
         // 取得してきた地点のお天気情報
         const weatherObj = await res.json();
-        console.log(weatherObj);
+        const todaysWeatherDetail = weatherObj.forecasts[0].telop;
+        // console.log(todaysWeatherDetail);
+        getWeather(todaysWeatherDetail);
       } catch (e) {
         console.error("idから天気取得に失敗", e);
       }

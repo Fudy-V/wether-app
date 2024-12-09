@@ -1,12 +1,9 @@
-"use client";
-import React, { useState } from "react";
+import React from "react";
 
-const WeatherResult = () => {
-  //   const [weather, setWeather] = useState("");
+const WeatherResult = ({ city, weather }: { city: string; weather: string }) => {
   return (
     <div>
-      {/* <h2>{city}</h2>
-      <h2>{weather}</h2> */}
+      <h3>{weather === "" ? "" : `${city}の本日の天候は${weather}です`}</h3>
     </div>
   );
 };
